@@ -2,7 +2,6 @@
 @use "../../styles/mixins" as *;
 
 .background {
-    background: url("../../assets/videos/home-background.webm");
     position: fixed;
     top: 0;
     left: 0;
@@ -16,17 +15,55 @@
     position: relative;
     z-index: 1;
     height: 100vh;
-
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     &__box {
+        padding: 0 1rem;
+        margin-bottom: 20vh;
+
        &--nav {
         
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            &__section {
+                
+                &--mid {
+                    display: none;
+                }
+
+                &--end {
+                    display: none;
+                }
+            }
+
+            &__img {
+                width: 25px;
+                height: 16px;
+            }
+        }
        }
 
        &--info {
+       
+        .headline {
+            &__title {
+                @include page-header;
+                text-align: center;
+                color: $primary-color-1;
+            }
+
+            &__description {
+                @include body-medium;
+                text-align: center;
+                font-weight: bold;
+                color: $primary-color-1;
+            }
+        }
         
        }
 
@@ -34,19 +71,34 @@
         width: 100%;
         height: 60px;
         border-radius: 30px;
-        background-color: #fff;
-        margin-bottom: 300px;
-
-        /* delete later, for dev purposes
+        background-color: $primary-color-3;
         display: flex;
         justify-content: flex-end;
-        padding-right: 30px;
-        */
+        align-items: center;
+
+        padding: 5px ;
+        
 
         .advance {
+            display: flex;
+            align-items: center;
+            background-color: $primary-color-1;
+            color: $primary-color-3;
+            height: 40px;
+            border-radius: 30px;
+            padding: 0 3px;
 
             &__text {
-                
+                padding: 0 10px;
+            }
+
+            &__button {
+                background-color: $primary-color-2;
+                width: 30px;
+                height: 30px;
+                border: none;
+                color: $primary-color-3;
+                border-radius: 50%;
             }
         }
        }

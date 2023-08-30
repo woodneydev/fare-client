@@ -3,6 +3,12 @@
 
 .hero {
 
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
     &__header {
         @include sub-header;
     }
