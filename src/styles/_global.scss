@@ -1,0 +1,30 @@
+// @font-face {
+//     font-family: "***Replace-with-font-name***";
+//     src: url("../assets/fonts/name-of-font.otf") format("opentype");
+//     src: url("../assets/fonts/name-of-font.ttf") format("truetype");
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: "***Replace-with-font-name***";
+//     src: url("../assets/fonts/name-of-font.otf") format("opentype");
+//     src: url("../assets/fonts/name-of-font.ttf") format("truetype");
+//     font-weight: 600;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: "***Replace-with-font-name***";
+//     src: url("../assets/fonts/name-of-font.otf") format("opentype");
+//     src: url("../assets/fonts/name-of-font.ttf") format("truetype");
+//     font-weight: bold;
+//     font-style: normal;
+// }
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}

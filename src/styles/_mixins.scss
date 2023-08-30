@@ -1,0 +1,205 @@
+@use 'variables' as *;
+
+/* <--- Media Query ---> */
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+/* <--- Font styling w/ media queries ---> */
+
+//h1
+@mixin page-header {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+
+    @include tablet {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+}
+
+//h2
+@mixin sub-header {
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+
+    @include tablet {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
+
+//h3
+@mixin labels-links-buttons {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+
+//h4
+@mixin table-header {
+    font-size: .6875rem;
+    line-height: 1rem;
+
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
+
+//p1
+@mixin body-large {
+    font-size: .9375rem;
+    line-height: 1.625rem;
+
+    @include tablet {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+}
+
+//p2
+@mixin body-medium {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+   
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+
+//p3
+@mixin body-small {
+    font-size: .6875rem;
+    line-height: 1rem;
+
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
+
+/* <--- Element Spacing w/ media queries ---> */
+
+// Title spacings w/ margin
+@mixin margin-before-after-headlines {
+    margin-top: $mobile-spacing-before-headlines;
+    margin-bottom: $mobile-spacing-after-headlines;
+
+        @include tablet {
+            margin-top: $spacing-before-headlines;
+            margin-bottom: $spacing-after-headlines;
+        }
+}
+
+// Title spacings w/ padding
+@mixin padding-before-after-headlines {
+    padding-top: $mobile-spacing-before-headlines;
+    padding-bottom: $mobile-spacing-after-headlines;
+
+        @include tablet {
+            padding-top: $spacing-before-headlines;
+            padding-bottom: $spacing-after-headlines;
+        }
+}
+
+//Component spacing w/ margins
+@mixin component-left-right-margin {
+    margin-left: $mobile-spacing-between-components;
+    margin-right: $mobile-spacing-between-components;
+
+        @include tablet {
+            margin-left: $spacing-between-components;
+            margin-right: $spacing-between-components;
+        }
+} 
+
+@mixin component-left-margin {
+    margin-left: $mobile-spacing-between-components;
+
+        @include tablet {
+            margin-left: $spacing-between-components;
+        }
+}
+
+@mixin component-right-margin {
+    margin-right: $mobile-spacing-between-components;
+
+        @include tablet {
+            margin-right: $spacing-between-components;
+        }
+} 
+
+@mixin component-top-margin {
+    margin-top: $mobile-spacing-between-components;
+
+        @include tablet {
+            margin-top: $spacing-between-components;
+        }
+}
+
+@mixin component-bottom-margin {
+    margin-bottom: $mobile-spacing-between-components;
+
+        @include tablet {
+            margin-bottom: $spacing-between-components;
+        }
+} 
+
+//Component spacing w/ padding
+@mixin component-left-right-padding {
+    padding-left: $mobile-spacing-between-components;
+    padding-right: $mobile-spacing-between-components;
+
+        @include tablet {
+            padding-left: $spacing-between-components;
+            padding-right: $spacing-between-components;
+        }
+} 
+
+@mixin component-left-padding {
+    padding-left: $mobile-spacing-between-components;
+
+        @include tablet {
+            padding-left: $spacing-between-components;
+        }
+}
+
+@mixin component-right-padding {
+    padding-right: $mobile-spacing-between-components;
+
+        @include tablet {
+            padding-right: $spacing-between-components;
+        }
+} 
+
+@mixin component-top-padding {
+    padding-top: $mobile-spacing-between-components;
+
+        @include tablet {
+            padding-top: $spacing-between-components;
+        }
+}
+
+@mixin component-bottom-padding {
+    padding-bottom: $mobile-spacing-between-components;
+
+        @include tablet {
+            padding-bottom: $spacing-between-components;
+        }
+} 

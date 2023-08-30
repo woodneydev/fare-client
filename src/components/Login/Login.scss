@@ -1,0 +1,21 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.login {
+    color: $primary-color-1;
+
+    &__title {
+        @include padding-before-after-headlines;
+        @include page-header;
+    }
+
+    &__form {
+
+        &-input {
+            @include component-bottom-margin;
+            height: 2.5rem;
+            width: 100%;
+            border-radius: 12px;
+        }
+    }
+}
