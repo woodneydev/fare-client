@@ -72,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # fare-server
 # fare-server
 # fare-client
+# fare-client
