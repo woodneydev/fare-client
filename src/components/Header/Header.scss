@@ -1,0 +1,95 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.nav {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    max-width: 1450px;
+
+    @include desktop {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__section {
+        align-items: baseline;
+
+        &-logo {
+            margin-right: 1rem;
+
+            &-img {
+                height: 1.25rem;
+            }
+        }
+
+        &-title {
+            color: $primary-color-1;
+        }
+
+        &--start {
+            display: flex;
+            // align-items: baseline;
+            width: 10.1706rem;
+        }
+        
+        &--mid {
+            list-style-type: none;
+            display: none;
+
+            @include tablet {
+                display: flex;
+            }
+        }
+
+        &--end {
+            display: none;
+
+            @include tablet {
+                display: flex;
+            }
+        }
+
+        &-item {
+            list-style-type: none;
+            margin: 1rem;
+            color: $primary-color-1;
+
+            &--register {
+
+                list-style-type: none;
+            }
+
+            &-link {
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    display: block;
+                    padding: 10px;
+                    background-color: $primary-color-1;
+                    color: $primary-color-3;
+                    border-radius: 30px; 
+                }
+
+                &--register {
+                    display: block;
+                    padding: 10px;
+                    background-color: $primary-color-1;
+                    color: $primary-color-3;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+
+    &__img {
+        width: 1.5625rem;
+        height: 1rem;
+
+        @include tablet {
+            display: none;
+        }
+    }
+}
