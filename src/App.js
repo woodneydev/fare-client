@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage.js/HomePage";
 import Layout from "./layouts/Layout/Layout";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
           } 
         />
         <Route path="/dashboard" element= {
-            <Layout>
+            <DashboardLayout>
                 <DashboardPage />
-            </Layout>
+            </DashboardLayout>
           } 
         />
       </Routes>

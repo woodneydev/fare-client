@@ -2,7 +2,7 @@ import "./LoginPage.scss";
 import LoginHero from "../../components/LoginHero/LoginHero";
 import Login from "../../components/Login/Login";
 import ActionButton from "../../components/ActionButton/ActionButton";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,7 +10,33 @@ function LoginPage({driver = false}) {
     
     const initialFormState = {email: "", password: ""}
     const [formData, setFormData] = useState(initialFormState);
+    const [isAuthorized, setIsAuthorized] = useState(false);
     const navigate = useNavigate();
+    const token = sessionStorage.getItem('fareAuth');
+    const pathAddOn = driver ? "driver/" : "";
+    const getURL = "http://localhost:8080/accounts/current";
+
+    useEffect(() => {
+
+        if (!token) {
+            setIsAuthorized(false);
+        }
+
+        const headers = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    
+        axios.get(getURL, headers)
+            .then(response => {
+                setIsAuthorized(true);
+                navigate(`/${pathAddOn}dashboard`);
+            })
+            .catch(error => {
+                setIsAuthorized(false)
+            })
+    }, [token])
     
     const {LOGIN_RIDER_API_URL} = process.env;
     const handleFormChange = event => {
@@ -21,9 +47,7 @@ function LoginPage({driver = false}) {
         event.preventDefault();
         const {email, password} = formData;
         const postObj = { data : {email, password} }
-        const pathAddOn = driver ? "driver/" : "";
         
-
         axios.post("http://localhost:8080/accounts/login", postObj)
             .then(response => {
                 sessionStorage.setItem("fareAuth", response.data.token);
@@ -32,6 +56,7 @@ function LoginPage({driver = false}) {
             .catch(error => {
                 alert("Something went wrong, please try again later");
             })
+
     }
 
     return (
