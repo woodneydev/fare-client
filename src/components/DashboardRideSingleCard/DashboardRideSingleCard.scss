@@ -1,0 +1,70 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.card {
+    background-color: $primary-color-3;
+    border-radius: 30px;
+    padding: .5rem .5rem 1rem;
+    @include component-top-margin;
+    @include component-bottom-margin;
+    
+    width: 100%;
+    
+    @include tablet {
+        max-width: 300px;
+    }
+
+    &__map {
+        background-image: url("../../assets/images/city-map.jpg");
+        background-size: cover;
+        background-position: center;
+
+        width: 100%;
+        height: 150px;
+        background-color: antiquewhite;
+        border-radius: 30px;
+    }
+
+    &__section {
+        display: flex;
+        align-items: baseline;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        
+
+        &-arrow {
+            &-img {
+                width: 16px;
+                @include component-right-margin;
+            }
+        }
+
+        &-title {
+            @include sub-header;
+            color: $primary-color-1;
+        }
+
+        &-driver-info {
+            @include body-large;
+            color: $primary-color-1;
+
+        }
+
+        &--ride-info {
+            flex-direction: column;
+        }
+
+        &-where {
+            @include labels-links-buttons;
+            
+        }
+
+        &-location {
+            @include labels-links-buttons;
+            color: $primary-color-1;
+            margin-bottom: .5rem;
+
+
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.main {
+    height: 100vh;
+    background-color: $secondary-color-2;
+    padding: 1rem 1rem 0;
+}

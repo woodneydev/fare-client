@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.dashboard-ride-card {
+
+    .form {
+        position: relative;
+
+        &__search-icon {
+            position: absolute;
+            width: 15px;
+            top: 30%;
+            left: 15px;
+        }
+
+        &__search-box {
+            width: 100%;
+            height: 40px;
+            border-radius: 30px;
+            border: none;
+            background-color: white;
+            padding-left: 40px;
+        }
+    }
+}

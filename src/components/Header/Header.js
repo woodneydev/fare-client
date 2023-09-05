@@ -23,8 +23,8 @@ function Header() {
                 </ul>
 
                 <ul className="nav__section nav__section--end">
-                    <li className="nav__section-item"><NavLink className="nav__section-item-link" to={"/"}>Login</NavLink> </li>
-                    <li className="nav__section-item nav__section-item--register"><NavLink className="nav__section-item-link nav__section-item-link--register"  to={"/"}>Register</NavLink> </li>
+                    <li className="nav__section-item"><NavLink className="nav__section-item-link" to={"/login"}>Login</NavLink> </li>
+                    <li className="nav__section-item nav__section-item--register"><NavLink to={"/register"} className="nav__section-item-link nav__section-item-link--register" >Register</NavLink> </li>
                 </ul>
                 <img className="nav__img" src={hamburger} alt="hamburger menu" />
             </nav>

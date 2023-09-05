@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage.js/HomePage";
 import Layout from "./layouts/Layout/Layout";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
+import AddNewRide from "./components/AddNewRide/AddNewRide";
 
 function App() {
   return (
@@ -27,6 +28,12 @@ function App() {
             <DashboardLayout>
                 <DashboardPage />
             </DashboardLayout>
+          } 
+        />
+        <Route path="/test" element= {
+            <Layout>
+              <AddNewRide />
+            </Layout>
           } 
         />
       </Routes>
