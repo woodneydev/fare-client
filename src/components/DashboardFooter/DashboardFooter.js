@@ -3,21 +3,34 @@ import { NavLink, useLocation } from "react-router-dom";
 import homeIcon from "../../assets/icons/house-solid.svg"
 import slashedHandshake from "../../assets/icons/handshake-slash-solid.svg"
 import addIcon from "../../assets/icons/circle-plus-solid.svg"
+import { useNavigate } from "react-router-dom";
 
 
-function DashboardFooter() {
+function DashboardFooter({handleViewEdit}) {
+
+    const navigate = useNavigate();
+
+    const handleHomeclick = () => {
+        navigate("/dashboard");
+    }
+
+    const handleAllRidesClick = () => {
+        navigate("/dashboard/rides")
+    }
+
     return (
         <footer className="footer">
             <div className="footer__bar">
-                <NavLink className="footer__bar-link" >
+                <div onClick={handleHomeclick} className="footer__bar-link" >
                     <img className="footer__bar-link-img" src={homeIcon} alt="home icon" />
-                </NavLink>
-                <NavLink className="footer__bar-link" >
+                </div>
+                <div onClick={handleAllRidesClick} className="footer__bar-link" >
                     <img className="footer__bar-link-img" src={slashedHandshake} alt="pending icon" />
-                </NavLink>
-                <NavLink className="footer__bar-link" >
-                    <img className="footer__bar-link-img" src={addIcon} alt="add icon" />
-                </NavLink>
+                </div>
+                <div>
+                    <img onClick={handleViewEdit} className="footer__bar-link-img" src={addIcon} alt="add icon" />
+                </div>
+                
             </div>
         </footer>
     )

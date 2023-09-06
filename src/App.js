@@ -7,6 +7,7 @@ import Layout from "./layouts/Layout/Layout";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import AddNewRide from "./components/AddNewRide/AddNewRide";
+import PendingRidesPage from "./pages/PendingRidesPage/PendingRidesPage";
 
 function App() {
   return (
@@ -27,6 +28,12 @@ function App() {
         <Route path="/dashboard" element= {
             <DashboardLayout>
                 <DashboardPage />
+            </DashboardLayout>
+          } 
+        />
+        <Route path="/dashboard/rides" element= {
+            <DashboardLayout>
+                <PendingRidesPage />
             </DashboardLayout>
           } 
         />

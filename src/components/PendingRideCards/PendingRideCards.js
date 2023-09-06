@@ -1,17 +1,17 @@
-import "./DashboardRideCards.scss";
+import "./PendingRideCards.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DashboardRideSingleCard from "../DashboardRideSingleCard/DashboardRideSingleCard";
 import searchIcon from "../../assets/icons/magnifying-glass-solid.svg";
 
-function DashboardRideCards({userDetails , booked = false}) {
+function PendingRideCards({userDetails , booked = false}) {
 
     const [upcomingRides, setUpcomingRides] = useState(null)
     const [search, setSearch] = useState("");
     const [filteredRides, setFilteredRides] = useState(null)
     const token = sessionStorage.getItem('fareAuth');
     const getURL = "http://localhost:8080/rides";
-    const endURL = booked ? `/${userDetails.id}` : `/${userDetails.id}/booked`
+    const endURL = `/${userDetails.id}` ;
 
     const handleSearchChange = (event) => {
 
@@ -47,7 +47,7 @@ function DashboardRideCards({userDetails , booked = false}) {
     if (filteredRides === null) return <p>Loading...</p>
 
     const rideElements = filteredRides.map(ride => {
-        return <DashboardRideSingleCard key={ride.id} ride={ride} />
+        return <DashboardRideSingleCard key={ride.id} ride={ride} pending={true} />
     })
 
     const noRidesMessage = !filteredRides.length ? <p className="no-rides">No rides match this criteria</p> : null;
@@ -64,4 +64,4 @@ function DashboardRideCards({userDetails , booked = false}) {
     )
 }
 
-export default DashboardRideCards;
+export default PendingRideCards;

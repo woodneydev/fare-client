@@ -1,10 +1,10 @@
-import "./AddNewRide.scss";
+import "./EditRide.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import xMark from "../../assets/icons/xmark-solid.svg";
 
-function AddNewRide({handleViewEdit, userDetails}) {
+function EditRide({handleViewEdit, userDetails}) {
     const initialFormState = {
         start_location: "",
         end_location: "",
@@ -18,7 +18,7 @@ function AddNewRide({handleViewEdit, userDetails}) {
 
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
-    const postURL = `http://localhost:8080/rides`;
+    const putURL = `http://localhost:8080/rides`;
     
     const handleFormChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value});
@@ -42,7 +42,7 @@ function AddNewRide({handleViewEdit, userDetails}) {
             }
         }
         console.log(postObj)
-        axios.post(postURL, postObj)
+        axios.post(putURL, postObj)
             .then(response => {
                 alert("Succesfully added new ride");
                 navigate("/dashboard/rides");
@@ -88,4 +88,4 @@ function AddNewRide({handleViewEdit, userDetails}) {
     )
 }
 
-export default AddNewRide;
+export default EditRide;

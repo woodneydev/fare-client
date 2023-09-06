@@ -4,12 +4,17 @@ import NotAuthorizedPage from "../../pages/NotAuthorizedPage/NotAuthorizedPage";
 import "./DashboardLayout.scss";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 function DashboardLayout({children}) {
-    const [userDetails, setUserDetails] = useState(null)
-    const [isAuthorized, setIsAuthorized] = useState(false)
+    const [userDetails, setUserDetails] = useState(null);
+    const [isAuthorized, setIsAuthorized] = useState(false);
+    const [viewEdit, setViewEdit] = useState(false);
     const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const path = location.pathname;
 
     const getURL = "http://localhost:8080/accounts/current";
     const token = sessionStorage.getItem('fareAuth');
@@ -24,6 +29,10 @@ function DashboardLayout({children}) {
 		isAuthorized(false);
         navigate("/");
 	};
+
+    const handleViewEdit = () => {
+        setViewEdit(prev => !prev);
+    }
 
     useEffect(() => {
 
@@ -49,7 +58,7 @@ function DashboardLayout({children}) {
 
     const childrenWithProps = React.Children.map(children, (child => {
         if (React.isValidElement(child)) {
-            return React.cloneElement(child, {userDetails})
+            return React.cloneElement(child, {userDetails, viewEdit, handleViewEdit})
         }
     }))
 
@@ -61,7 +70,7 @@ function DashboardLayout({children}) {
         <>
             <DashboardHeader user={userDetails} handleLogout={handleLogout} />
             {childrenWithProps}
-            <DashboardFooter />
+            <DashboardFooter handleViewEdit={handleViewEdit} />
         </>
     )
 }
