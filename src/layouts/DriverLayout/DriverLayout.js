@@ -16,7 +16,7 @@ function DriverLayout({children}) {
 
     const path = location.pathname;
 
-    const getURL = "http://localhost:8080/accounts/current";
+    const getURL = "https://fare-app-b36c43511aea.herokuapp.com/accounts/current";
     const token = sessionStorage.getItem('fareAuth');
 
     // const handleFailedAuth = () => {

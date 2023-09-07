@@ -13,7 +13,7 @@ function DriverDashBoardPage({userDetails, viewEdit, handleViewEdit}) {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/rides/all/${userDetails.id}`)
+        axios.get(`https://fare-app-b36c43511aea.herokuapp.com/rides/all/${userDetails.id}`)
             .then(response => {
                 console.log(response.data.data)
                 setAllRides(response.data.data)
@@ -28,7 +28,7 @@ function DriverDashBoardPage({userDetails, viewEdit, handleViewEdit}) {
                 driver_id: userDetails.id
             }
            }
-            axios.post("http://localhost:8080/rides/all", postObj)
+            axios.post("https://fare-app-b36c43511aea.herokuapp.com/rides/all", postObj)
                 .then(response => {
                     setCount(prev => prev + 1)
                 })
@@ -48,7 +48,7 @@ function DriverDashBoardPage({userDetails, viewEdit, handleViewEdit}) {
     const list = allRides.map(ride => {
         console.log(ride)
         return (
-            <p key={ride.id}> No - {ride.id} - From {ride.start_location} - To {ride.end_location} - Price {ride.fare} <button onClick={() => {handleAdd(ride.id)}} type="button" >add</button>  </p>
+            <p key={ride.id}> No - {ride.id} - From {ride.start_location} - To {ride.end_location} - Price {ride.fare}   </p>
             // <p className="all-rides" key={ride.id}> No: {ride.id} | From: {ride.start_location} | To: {ride.end_location} | $: {ride.fare}  <button onClick={() => {handleAdd(ride.id)}} type="button" >add</button>  </p>
         )
     })

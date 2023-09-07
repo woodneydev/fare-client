@@ -20,9 +20,9 @@ function EditRide() {
 
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
-    const getURL = `http://localhost:8080/rides/specific/${ride_id}`;
-    const putURL = `http://localhost:8080/rides/specific/${ride_id}`;
-    const deleteURL = `http://localhost:8080/rides/specific/${ride_id}`;
+    const getURL = `https://fare-app-b36c43511aea.herokuapp.com/rides/specific/${ride_id}`;
+    const putURL = `https://fare-app-b36c43511aea.herokuapp.com/rides/specific/${ride_id}`;
+    const deleteURL = `https://fare-app-b36c43511aea.herokuapp.com/rides/specific/${ride_id}`;
 
     useEffect(() => {
         axios.get(getURL)

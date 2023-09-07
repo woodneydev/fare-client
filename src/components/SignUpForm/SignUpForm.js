@@ -37,7 +37,7 @@ function SignUpForm() {
 
         console.log("postobj is__", postObj)
 
-        axios.post("http://localhost:8080/accounts", postObj)
+        axios.post("https://fare-app-b36c43511aea.herokuapp.com/accounts", postObj)
             .then(response => {
                 alert('Sign up was a succes!');
                 navigate("/");
