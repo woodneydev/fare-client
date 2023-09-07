@@ -21,7 +21,7 @@ function DashboardRideSingleCard({ride, pending = false}) {
 
     const dateFormatted = formatDate(ride.start_time);
 
-    const displayEdit = pending ? <NavLink to={`http://localhost:3000/dashboard/edit/${ride.ride_id}`} > <img className="head-interact__icons-icn" src={editIcon} alt="edit icon" /></NavLink> : null;
+    const displayEdit = pending ? <NavLink to={`https://quiet-kringle-b71523.netlify.app/dashboard/edit/${ride.ride_id}`} > <img className="head-interact__icons-icn" src={editIcon} alt="edit icon" /></NavLink> : null;
 
 
     return (
