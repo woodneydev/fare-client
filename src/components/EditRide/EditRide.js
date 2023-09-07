@@ -1,63 +1,106 @@
 import "./EditRide.scss";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import xMark from "../../assets/icons/xmark-solid.svg";
+import leftArrow from "../../assets/icons/arrow-left-solid.svg";
+import extractTime from "../../assets/utilities/extractTime";
+import extractDate from "../../assets/utilities/extractDate";
 
-function EditRide({handleViewEdit, userDetails}) {
+function EditRide() {
+
+    const {ride_id} = useParams();
+
     const initialFormState = {
         start_location: "",
         end_location: "",
         start_date: "",
-        end_time: "",
+        start_time: "",
         fare: ""
     };
 
-    // console.log("user details", userDetails)
-    console.log("hello world")
-
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
-    const putURL = `http://localhost:8080/rides`;
+    const getURL = `http://localhost:8080/rides/specific/${ride_id}`;
+    const putURL = `http://localhost:8080/rides/specific/${ride_id}`;
+    const deleteURL = `http://localhost:8080/rides/specific/${ride_id}`;
+
+    useEffect(() => {
+        axios.get(getURL)
+            .then(response => {
+                const ride = response.data.data;
+                const start_time = extractTime(response.data.data.start_time)
+                const start_date = extractDate(response.data.data.start_time)
+               
+                const formUpdate = {
+                    ...ride,
+                    start_time,
+                    start_date
+                }
+
+                setFormData(formUpdate)
+            })
+            .catch(error => {
+                alert("Something went wrong, please try again")
+            })
+    }, [])
     
     const handleFormChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value});
     }
 
-    console.log(formData)
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        const { start_location, end_location, start_date, end_time, fare } = formData;
+        const { start_location, end_location, start_date, start_time, fare } = formData;
         
-        const combinedDateTime = `${start_date} ${end_time}`;
+        const combinedDateTime = `${start_date} ${start_time}`;
 
-        const postObj = { 
+        console.log(formData)
+
+        const putObj = { 
             data: {
+                id: ride_id,
                 start_location,
                 end_location,
                 start_time: combinedDateTime,
                 fare,
-                rider_id: userDetails.id 
             }
         }
-        console.log(postObj)
-        axios.post(putURL, postObj)
+        axios.put(putURL, putObj)
             .then(response => {
-                alert("Succesfully added new ride");
+                alert("Succesfully edited the ride");
                 navigate("/dashboard/rides");
-                handleViewEdit();
             })
             .catch(error => {
                 alert("Something went wrong, please try again later");
+                console.log("----------------------+++++++++----------------------")
                 console.log(error)
             }) 
+    }
+
+    const handleBackButton = () => {
+        navigate(-1);
+    }
+
+    const handleCancelClick = () => {
+        if (window.confirm("Are you sure you want to delete this ride?")) {
+            axios.delete(deleteURL)
+                .then(response => {
+                    alert("Successfully deleted")
+                    navigate("/dashboard/rides")
+                })
+                .catch(error => {
+                    alert("Something went wrong, please try again later")
+                })
+        } else {
+            
+        }
     }
 
     return (
         <div className="add-new-site">
             <div className="close">
-                <img onClick={handleViewEdit} className="close__img" src={xMark} alt="x icon to exit out" />
+                <img onClick={handleBackButton} className="close__img" src={leftArrow} alt="x icon to exit out" />
             </div>
             <form className="add-new" onSubmit={handleFormSubmit}>
                 <label className="add-new__label" >
@@ -82,7 +125,10 @@ function EditRide({handleViewEdit, userDetails}) {
                     <span className="add-new__label-title" >Fare</span>
                     <input className="add-new__label-input add-new__label-input--fare" onChange={handleFormChange} name="fare" type="number" step="0.01" min="0" placeholder="$0.00" value={formData.fare} />
                 </label>
-                <div className="add-new__submit"><button className="add-new__submit-btn" type="submit">Add</button></div>
+                <div className="add-new__submit">
+                    <button className="add-new__submit-btn" type="submit">Edit</button>
+                    <button onClick={handleCancelClick}  className="add-new__submit-btn" type="button">Delete</button>
+                </div>
             </form>
         </div>
     )

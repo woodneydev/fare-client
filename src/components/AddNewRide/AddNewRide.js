@@ -4,17 +4,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import xMark from "../../assets/icons/xmark-solid.svg";
 
-function AddNewRide({handleViewEdit, userDetails}) {
+function AddNewRide({handleViewEdit, userDetails, handleUpdate}) {
     const initialFormState = {
         start_location: "",
         end_location: "",
         start_date: "",
-        end_time: "",
+        start_time: "",
         fare: ""
     };
-
-    // console.log("user details", userDetails)
-    console.log("hello world")
 
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
@@ -28,9 +25,9 @@ function AddNewRide({handleViewEdit, userDetails}) {
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        const { start_location, end_location, start_date, end_time, fare } = formData;
+        const { start_location, end_location, start_date, start_time, fare } = formData;
         
-        const combinedDateTime = `${start_date} ${end_time}`;
+        const combinedDateTime = `${start_date} ${start_time}`;
 
         const postObj = { 
             data: {
@@ -46,7 +43,9 @@ function AddNewRide({handleViewEdit, userDetails}) {
             .then(response => {
                 alert("Succesfully added new ride");
                 navigate("/dashboard/rides");
-                handleViewEdit();
+                handleUpdate()
+                handleViewEdit()
+
             })
             .catch(error => {
                 alert("Something went wrong, please try again later");

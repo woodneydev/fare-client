@@ -8,6 +8,8 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import AddNewRide from "./components/AddNewRide/AddNewRide";
 import PendingRidesPage from "./pages/PendingRidesPage/PendingRidesPage";
+import EditRidePage from "./pages/EditRidePage/EditRidePage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
 
 function App() {
   return (
@@ -25,6 +27,12 @@ function App() {
             </HeaderFooterLayout>
           } 
         />
+        <Route path="/signup" element={
+            <HeaderFooterLayout>
+              <SignUpPage />
+            </HeaderFooterLayout>
+          } 
+        />
         <Route path="/dashboard" element= {
             <DashboardLayout>
                 <DashboardPage />
@@ -34,6 +42,12 @@ function App() {
         <Route path="/dashboard/rides" element= {
             <DashboardLayout>
                 <PendingRidesPage />
+            </DashboardLayout>
+          } 
+        />
+        <Route path="/dashboard/edit/:ride_id" element= {
+            <DashboardLayout>
+                <EditRidePage />
             </DashboardLayout>
           } 
         />

@@ -1,40 +1,28 @@
 import "./DashboardRideSingleCard.scss";
 import chevronCircle from "../../assets/icons/circle-chevron-right-solid.svg";
 import editIcon from "../../assets/icons/pen-to-square-regular.svg";
-import cancelIcon from "../../assets/icons/ban-solid.svg";
 import starRating from "../../assets/utilities/starRating";
+import formatDate from "../../assets/utilities/formatDate";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function DashboardRideSingleCard({ride, pending = false}) {
-    
+    console.log("----------", ride)
+    const [showEdit, setShowEdit] = useState(false)
+
     const rating = starRating(ride.driver_rating);
-    const cardTitle = pending ? "Finding Match..." : "Next Ride"
-    const driverInfo = pending ? <h3 className="card__section-driver-info" >Pending...</h3>  : <h3 className="card__section-driver-info" >{ride.driver_name} | {rating} </h3> 
+    const cardTitle = pending ? "Finding Match..." : "Next Ride";
+    const driverInfo = pending ? <h3 className="card__section-driver-info" >Pending...</h3>  : <h3 className="card__section-driver-info" >{ride.driver_name} | {rating} </h3> ;
     
-    const formatDate = (inputDate) => {
-        const date = new Date(inputDate);
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear().toString().slice(-2);
-        let hours = date.getHours();
-        const minutes = date.getMinutes();
-        const ampm = hours >= 12 ? 'pm' : 'am';
 
-        if (hours === 0) {
-            hours = 12;
-        } else if (hours > 12) {
-            hours = hours - 12;
-        }
-
-        const strMinutes = minutes < 10 ? '0' + minutes : minutes.toString();
-        return month + '/' + year + ' - ' + hours + ':' + strMinutes + ampm;
+    const handleEdit = () => {
+        setShowEdit(prev => !prev);
     }
 
     const dateFormatted = formatDate(ride.start_time);
 
-    function getRandomColor() {
-        return Math.random() < 0.5 ? 'orange' : 'green';
-    }
+    const displayEdit = pending ? <NavLink to={`http://localhost:3000/dashboard/edit/${ride.ride_id}`} > <img className="head-interact__icons-icn" src={editIcon} alt="edit icon" /></NavLink> : null;
 
-    console.log("this is ride---------", ride)
 
     return (
         <section className={`card`} key={ride.id}>
@@ -42,7 +30,7 @@ function DashboardRideSingleCard({ride, pending = false}) {
                 <div className="head-interact">
                     <p className={`head-interact__date green`} >{dateFormatted}</p>
                     <div className="head-interact__icons">
-                        <img className="head-interact__icons-icn" src={editIcon} alt="edit icon" />
+                        {displayEdit}
                     </div>
                 </div>
             </div>

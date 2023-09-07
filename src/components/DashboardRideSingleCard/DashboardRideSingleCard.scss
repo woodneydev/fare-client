@@ -8,6 +8,10 @@
     overflow: hidden;
     @include component-top-margin;
     @include component-bottom-margin;
+
+    @include tablet {
+        @include component-left-right-margin;
+    }
     
     width: 100%;
     

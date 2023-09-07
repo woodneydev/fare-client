@@ -59,7 +59,9 @@ function DashboardRideCards({userDetails , booked = false}) {
                 <input onChange={handleSearchChange} className="form__search-box" type="text" placeholder="Search by address" value={search} />
                 {noRidesMessage}
             </form>
-            {rideElements}
+            <div className="card-els" >
+                {rideElements}
+            </div>
         </section>
     )
 }

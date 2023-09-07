@@ -2,6 +2,7 @@ import { useState } from "react";
 import ActionButton from "../ActionButton/ActionButton";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./SignUpForm.scss"
 
 function SignUpForm() {
 
@@ -25,12 +26,16 @@ function SignUpForm() {
 
         const {first_name, last_name, email, password} = formData
 
-        const postObj = {
-            first_name,
-            last_name,
-            email,
-            password
+        const postObj = { 
+            data: {
+                last_name,
+                email,
+                password,
+                first_name,
+            }
         }
+
+        console.log("postobj is__", postObj)
 
         axios.post("http://localhost:8080/accounts", postObj)
             .then(response => {
@@ -39,16 +44,29 @@ function SignUpForm() {
             })
             .catch(error => {
                 alert("Something went wrong, please try again later");
+                console.log(error)
             })
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
-            <input name="first_name" type="text" onChange={handleFormChange} value={formData.first_name} />
-            <input name="last_name" type="text" onChange={handleFormChange} value={formData.last_name} />
-            <input name="email" type="text" onChange={handleFormChange} value={formData.email} />
-            <input name="password" type="text" onChange={handleFormChange} value={formData.password} />
-            <ActionButton innerText={"Sign Up"} />
+        <form className="signup-form" onSubmit={handleFormSubmit}>
+            <label className="signup-form__label signup-form__label--first-name">
+                First Name
+                <input className="signup-form__input signup-form__input--first-name" name="first_name" type="text" onChange={handleFormChange} value={formData.first_name} />
+            </label>
+            <label className="signup-form__label signup-form__label--last-name">
+                Last Name
+                <input className="signup-form__input signup-form__input--last-name" name="last_name" type="text" onChange={handleFormChange} value={formData.last_name} />
+            </label>
+            <label className="signup-form__label signup-form__label--email">
+                Email
+                <input className="signup-form__input signup-form__input--email" name="email" type="text" onChange={handleFormChange} value={formData.email} />
+            </label>
+            <label className="signup-form__label signup-form__label--password">
+                Password
+                <input className="signup-form__input signup-form__input--password" name="password" type="text" onChange={handleFormChange} value={formData.password} />
+            </label>
+            <ActionButton className="signup-form__action-button" innerText={"Sign Up"} />
         </form>
     )
 }
