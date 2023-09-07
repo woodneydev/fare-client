@@ -10,6 +10,8 @@ import AddNewRide from "./components/AddNewRide/AddNewRide";
 import PendingRidesPage from "./pages/PendingRidesPage/PendingRidesPage";
 import EditRidePage from "./pages/EditRidePage/EditRidePage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import DriverDashBoardPage from "./pages/DriverDashboardPage/DriverDashboardPage";
+import DriverLayout from "./layouts/DriverLayout/DriverLayout";
 
 function App() {
   return (
@@ -43,6 +45,12 @@ function App() {
             <DashboardLayout>
                 <PendingRidesPage />
             </DashboardLayout>
+          } 
+        />
+        <Route path="/dashboard/driver" element= {
+            <DriverLayout>
+                <DriverDashBoardPage />
+            </DriverLayout>
           } 
         />
         <Route path="/dashboard/edit/:ride_id" element= {

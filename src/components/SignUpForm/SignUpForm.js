@@ -50,21 +50,23 @@ function SignUpForm() {
 
     return (
         <form className="signup-form" onSubmit={handleFormSubmit}>
+            <h1 className="login__title">Sign Up For <span className="login__title-acsent">Fare</span></h1>
+
             <label className="signup-form__label signup-form__label--first-name">
                 First Name
-                <input className="signup-form__input signup-form__input--first-name" name="first_name" type="text" onChange={handleFormChange} value={formData.first_name} />
+                <input className="signup-form__input signup-form__input--first-name" name="first_name" type="text" onChange={handleFormChange} value={formData.first_name} placeholder="Enter first name" required />
             </label>
             <label className="signup-form__label signup-form__label--last-name">
                 Last Name
-                <input className="signup-form__input signup-form__input--last-name" name="last_name" type="text" onChange={handleFormChange} value={formData.last_name} />
+                <input className="signup-form__input signup-form__input--last-name" name="last_name" type="text" onChange={handleFormChange} value={formData.last_name} placeholder="Enter last name" required />
             </label>
             <label className="signup-form__label signup-form__label--email">
                 Email
-                <input className="signup-form__input signup-form__input--email" name="email" type="text" onChange={handleFormChange} value={formData.email} />
+                <input className="signup-form__input signup-form__input--email" name="email" type="text" onChange={handleFormChange} value={formData.email} placeholder="Enter email address" required />
             </label>
             <label className="signup-form__label signup-form__label--password">
                 Password
-                <input className="signup-form__input signup-form__input--password" name="password" type="text" onChange={handleFormChange} value={formData.password} />
+                <input className="signup-form__input signup-form__input--password" name="password" type="text" onChange={handleFormChange} value={formData.password} placeholder="Enter password" required />
             </label>
             <ActionButton className="signup-form__action-button" innerText={"Sign Up"} />
         </form>

@@ -105,25 +105,25 @@ function EditRide() {
             <form className="add-new" onSubmit={handleFormSubmit}>
                 <label className="add-new__label" >
                     <span className="add-new__label-title" >From</span>
-                    <input className="add-new__label-input" onChange={handleFormChange} name="start_location" type="text" placeholder="Pick-up address" value={formData.start_location} />
+                    <input className="add-new__label-input" onChange={handleFormChange} name="start_location" type="text" placeholder="Pick-up address" value={formData.start_location} required />
                 </label>
                 <label className="add-new__label" >
                     <span className="add-new__label-title" >To</span>
-                    <input className="add-new__label-input" onChange={handleFormChange} name="end_location" type="text" placeholder="drop-off address" value={formData.end_location} />
+                    <input className="add-new__label-input" onChange={handleFormChange} name="end_location" type="text" placeholder="drop-off address" value={formData.end_location} required />
                 </label>
 
                 <label className="add-new__label" >
                     <span className="add-new__label-title" >Date</span>
-                    <input className="add-new__label-input" onChange={handleFormChange} name="start_date" type="date" value={formData.start_date} />
+                    <input className="add-new__label-input" onChange={handleFormChange} name="start_date" type="date" value={formData.start_date} required />
                 </label>
 
                 <label className="add-new__label" >
                     <span className="add-new__label-title" >Time</span>
-                    <input className="add-new__label-input" onChange={handleFormChange} name="start_time" type="time" value={formData.start_time} />
+                    <input className="add-new__label-input" onChange={handleFormChange} name="start_time" type="time" value={formData.start_time} required />
                 </label>
                 <label className="add-new__label" >
                     <span className="add-new__label-title" >Fare</span>
-                    <input className="add-new__label-input add-new__label-input--fare" onChange={handleFormChange} name="fare" type="number" step="0.01" min="0" placeholder="$0.00" value={formData.fare} />
+                    <input className="add-new__label-input add-new__label-input--fare" onChange={handleFormChange} name="fare" type="number" step="0.01" min="0" placeholder="$0.00" value={formData.fare} required />
                 </label>
                 <div className="add-new__submit">
                     <button className="add-new__submit-btn" type="submit">Edit</button>

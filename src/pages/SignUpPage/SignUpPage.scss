@@ -3,6 +3,7 @@
 
 .site {
     padding: 2rem;
+    position: relative;
 
     @include tablet {
         display: flex;
