@@ -6,7 +6,7 @@ import addIcon from "../../assets/icons/circle-plus-solid.svg"
 import { useNavigate } from "react-router-dom";
 
 
-function DashboardFooter({handleViewEdit}) {
+function DashboardFooter({handleViewEdit, driver = false}) {
 
     const navigate = useNavigate();
 
@@ -18,6 +18,8 @@ function DashboardFooter({handleViewEdit}) {
         navigate("/dashboard/rides")
     }
 
+    const displayAdd = driver ? null : <div> <img onClick={handleViewEdit} className="footer__bar-link-img" src={addIcon} alt="add icon" /> </div>
+
     return (
         <footer className="footer">
             <div className="footer__bar">
@@ -27,9 +29,10 @@ function DashboardFooter({handleViewEdit}) {
                 <div onClick={handleAllRidesClick} className="footer__bar-link" >
                     <img className="footer__bar-link-img" src={slashedHandshake} alt="pending icon" />
                 </div>
-                <div>
+                {/* <div>
                     <img onClick={handleViewEdit} className="footer__bar-link-img" src={addIcon} alt="add icon" />
-                </div>
+                </div> */}
+                {displayAdd}
                 
             </div>
         </footer>

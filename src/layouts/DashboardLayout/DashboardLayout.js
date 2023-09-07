@@ -25,8 +25,8 @@ function DashboardLayout({children}) {
 
     const handleLogout = () => {
 		sessionStorage.removeItem("fareAuth");
-		userDetails(null);
-		isAuthorized(false);
+		// userDetails(null);
+		// isAuthorized(false);
         navigate("/");
 	};
 

@@ -12,6 +12,8 @@ import EditRidePage from "./pages/EditRidePage/EditRidePage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import DriverDashBoardPage from "./pages/DriverDashboardPage/DriverDashboardPage";
 import DriverLayout from "./layouts/DriverLayout/DriverLayout";
+import LogoutPrompt from "./components/LogoutPrompt/LogoutPrompt";
+import Overlay from "./components/Overlay/Overlay";
 
 function App() {
   return (
@@ -61,7 +63,7 @@ function App() {
         />
         <Route path="/test" element= {
             <Layout>
-              <AddNewRide />
+              <Overlay />
             </Layout>
           } 
         />

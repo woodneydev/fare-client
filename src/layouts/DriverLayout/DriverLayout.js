@@ -25,8 +25,8 @@ function DriverLayout({children}) {
 
     const handleLogout = () => {
 		sessionStorage.removeItem("fareAuth");
-		userDetails(null);
-		isAuthorized(false);
+		// userDetails(null);
+		// isAuthorized(false);
         navigate("/");
 	};
 
@@ -70,7 +70,7 @@ function DriverLayout({children}) {
         <>
             <DashboardHeader user={userDetails} handleLogout={handleLogout} />
             {childrenWithProps}
-            <DashboardFooter handleViewEdit={handleViewEdit} />
+            <DashboardFooter handleViewEdit={handleViewEdit} driver={true} />
         </>
     )
 }

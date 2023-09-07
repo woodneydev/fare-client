@@ -3,8 +3,15 @@ import "./HomePage.scss";
 import videobackground from "../../assets/videos/redCarDriving.webm";
 import hamburger from "../../assets/icons/hamburger.png";
 import rightArrow from "../../assets/icons/arrow-right-solid.png";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+
+    const navigate = useNavigate();
+
+    const handleHomeClick = () => {
+        navigate("/login");
+    }
 
     return (
         <main>
@@ -29,13 +36,12 @@ function HomePage() {
                             </div>
                         </form> */}
 
-                        <div className="content__box content__box--find">
+                        <div onClick={handleHomeClick} className="content__box content__box--find">
                             <p className="content__box-search">Find a Ride</p>
                             <div className="content__box-arrow">
                                 <img className="content__box-arrow-img" src={rightArrow} alt="arrow icon" />
                             </div>
                         </div>
-
 
                     </section>
                 </div>

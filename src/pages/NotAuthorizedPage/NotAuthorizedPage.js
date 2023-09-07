@@ -1,11 +1,12 @@
 import Header from "../../components/Header/Header";
+import "./NotAuthorizedPage.scss"
 
 function NotAuthorizedPage() {
 
     return (
         <>
             <Header />
-            <p>Please Login to view dashboard</p>
+            <p className="auth-text">Please Login to view dashboard</p>
         </>
     )
 }
