@@ -1,0 +1,138 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.card {
+    background-color: $primary-color-3;
+    border-radius: 30px;
+    padding: .5rem .5rem 1rem;
+    overflow: hidden;
+    @include component-top-margin;
+    @include component-bottom-margin;
+
+    @include tablet {
+        @include component-left-right-margin;
+    }
+    
+    width: 100%;
+    
+    @include tablet {
+        max-width: 300px;
+    }
+
+    &__map {
+        background-image: url("../../assets/images/city-map.jpg");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        width: 100%;
+        height: 150px;
+        background-color: antiquewhite;
+        border-radius: 30px;
+
+        .head-interact {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 12px;
+
+            &__date {
+                width: auto;
+                margin-top: 5px;
+                margin-left: 10px;
+                padding: 5px;
+                border-radius: 12px;
+                color: white;
+            }
+
+            &__icons {
+                margin-top: 8px;
+                margin-right: 12px;
+               
+                &-icn {
+                    width: 20px;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    &__section {
+        display: flex;
+        align-items: baseline;
+        margin-left: .5rem;
+        margin-right: .5rem;
+
+        &-arrow {
+            &-img {
+                width: 16px;
+                @include component-right-margin;
+            }
+        }
+
+        &-title {
+            @include sub-header;
+            color: $primary-color-1;
+        }
+
+        &-driver-info {
+            @include body-large;
+            color: $primary-color-1;
+
+        }
+
+        &--ride-info {
+            flex-direction: row;
+            position: relative;
+        }
+
+        &-foot {
+            width: 60%;
+
+            &-where {
+                @include labels-links-buttons;
+                
+            }
+    
+            &-location {
+                @include labels-links-buttons;
+                color: $primary-color-1;
+                margin-bottom: .5rem;
+    
+    
+            }
+        }
+
+        &-corner {
+            width: 40%;
+            height: 100%;
+            display: flex;
+         
+            
+            &-text {
+                color: $primary-color-1;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.rated {
+    &__star {
+        width: 12px;
+    }
+}
+
+.no-rating {
+    
+}
+
+.orange {
+    background-color: #ff6d00;
+}
+
+.green {
+    background-color: #01be57;
+
+}

@@ -1,0 +1,77 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.add-new-site {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: $primary-color-3;
+
+    .close {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+
+        &__img {
+            width: 20px;
+            margin: 1rem 1.5rem 0;
+        }
+    }
+
+    .add-new {
+        border: 1px solid $primary-color-1;
+        margin: 1rem;
+        border-radius: 30px;
+        overflow: hidden;
+        
+        &__label {
+            display: flex;
+            flex-direction: column;
+            padding-top: 8px;
+    
+            &-title {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+    
+            &-input {
+                // background-color: $secondary-color-2;
+                border: none;
+                height: 30px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border-bottom: 1px solid $primary-color-1;
+                
+                &--fare {
+                    border-bottom: none;
+                }
+    
+                &:focus {
+                    outline: none;
+                }
+                
+            }
+        }
+
+        &__submit {
+            display: flex;
+            justify-content: center;
+            padding-bottom: .3125rem;
+
+            &-btn {
+                border: none;
+                border-radius: 12px;
+                padding: 5px 10px;
+                background-color: $primary-color-1;
+                color: $primary-color-3;
+                margin-right: 5px;
+                @include body-medium;
+            }
+        }
+    }
+}

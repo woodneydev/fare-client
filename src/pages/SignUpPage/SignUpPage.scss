@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.site {
+    padding: 2rem;
+    position: relative;
+
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: .5rem;
+        border-top: 1px solid $secondary-color-3;
+        height: 60vh;
+    }
+
+    &__animation {
+        
+        @include tablet {
+            width: 50%;
+            max-width: 680px;   
+        }
+    }
+
+    &__form {
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            max-width: 680px;
+            border-left: 1px solid $secondary-color-3;
+        }
+
+        &-organizer {
+            @include tablet {
+                max-width: 300px;
+            }
+        }
+    }
+}

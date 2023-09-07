@@ -1,12 +1,12 @@
 import DashboardFooter from "../../components/DashboardFooter/DashboardFooter";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import NotAuthorizedPage from "../../pages/NotAuthorizedPage/NotAuthorizedPage";
-import "./DashboardLayout.scss";
+import "./DriverLayout.scss";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom"
 
-function DashboardLayout({children}) {
+function DriverLayout({children}) {
     const [userDetails, setUserDetails] = useState(null);
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [viewEdit, setViewEdit] = useState(false);
@@ -70,9 +70,9 @@ function DashboardLayout({children}) {
         <>
             <DashboardHeader user={userDetails} handleLogout={handleLogout} />
             {childrenWithProps}
-            <DashboardFooter handleViewEdit={handleViewEdit} />
+            <DashboardFooter handleViewEdit={handleViewEdit} driver={true} />
         </>
     )
 }
 
-export default DashboardLayout;
+export default DriverLayout;

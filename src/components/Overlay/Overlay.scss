@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.overlay {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: $primary-color-2;
+    text-align: left;
+    margin-left: auto;
+    padding-left: 10%;
+    width: 50vw;
+    height: 100vh;
+    z-index: 10;
+    
+    padding-right: 10%;
+
+    &__close {
+        width: 30px;
+        margin-top: 3vh;
+        // float: right;
+    }
+    
+    &__title {
+        padding-top: 1rem;
+        @include page-header;
+        color: white;
+    }
+
+    &__list {
+        list-style-type: none;
+
+        &-link {
+            text-decoration: none;
+            color: white;
+
+            &-item {
+                padding-top: 5vh;
+            }
+        }
+    }
+}

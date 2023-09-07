@@ -1,0 +1,55 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+    padding: 1rem;
+    
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+
+            &__item {
+                
+                &--profile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: $secondary-color-3;
+                }
+
+                &-profile-img {
+                    
+                    width: 20px;
+                }
+
+                &-identity {
+                    color: $primary-color-1;
+
+                    &-name {
+                        font-weight: 600;
+                    }
+                }
+
+                &--menu {
+                    background-color: $secondary-color-3;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &-hamburger {
+                    width: 16px;
+                }
+
+                
+            }
+        }
+}

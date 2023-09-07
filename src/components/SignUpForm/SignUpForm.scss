@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.signup-form {
+    color: $primary-color-1;
+
+    &__label {
+        display: block; 
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        height: 2.5rem;
+        width: 100%;
+        border-radius: 12px;
+        border: none;
+        background-color: #e8f0fe;
+        padding: 0 10px;
+    }
+
+    &__action-button {
+        
+    }
+
+}
