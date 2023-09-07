@@ -10,7 +10,7 @@ function DashboardRideCards({userDetails , booked = false}) {
     const [search, setSearch] = useState("");
     const [filteredRides, setFilteredRides] = useState(null)
     const token = sessionStorage.getItem('fareAuth');
-    const getURL = "http://localhost:8080/rides";
+    const getURL = "https://fare-app-b36c43511aea.herokuapp.com/rides";
     const endURL = booked ? `/${userDetails.id}` : `/${userDetails.id}/booked`
 
     const handleSearchChange = (event) => {
