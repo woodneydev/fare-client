@@ -14,7 +14,7 @@ function LoginPage({driver = false}) {
     const navigate = useNavigate();
     const token = sessionStorage.getItem('fareAuth');
     const pathAddOn = driver ? "driver/" : "";
-    const getURL = "http://localhost:8080/accounts/current";
+    const getURL = "https://fare-app-b36c43511aea.herokuapp.com/accounts/current";
 
     useEffect(() => {
 
@@ -48,7 +48,7 @@ function LoginPage({driver = false}) {
         const {email, password} = formData;
         const postObj = { data : {email, password} }
         
-        axios.post("http://localhost:8080/accounts/login", postObj)
+        axios.post("https://fare-app-b36c43511aea.herokuapp.com/accounts/login", postObj)
             .then(response => {
                 sessionStorage.setItem("fareAuth", response.data.token);
                 navigate(`/${pathAddOn}dashboard`)

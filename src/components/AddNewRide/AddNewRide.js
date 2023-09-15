@@ -15,7 +15,7 @@ function AddNewRide({handleViewEdit, userDetails, handleUpdate}) {
 
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
-    const postURL = `http://localhost:8080/rides`;
+    const postURL = `https://fare-app-b36c43511aea.herokuapp.com/rides`;
     
     const handleFormChange = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value});
